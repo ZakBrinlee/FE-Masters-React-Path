@@ -8,10 +8,11 @@
     "prettier/react"
   ],
   "rules": {
-    "react/prop-types": 0, // Weak type rules typescript is better
-    "no-console": 1 // 1 will be a warning for console.log
+    "react/prop-types": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "no-console": "warn"
   },
-  "plugins": ["react", "import", "jsx-a11y"],
+  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -24,10 +25,9 @@
     "browser": true,
     "node": true
   },
-  "Settings": {
+  "settings": {
     "react": {
-      // Need to tell eslint which version of react
-      "version": "detect" // detect is telling eslint to "figure it out"
+      "version": "detect"
     }
   }
 }

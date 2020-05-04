@@ -5,10 +5,20 @@
 *[Presentation slides/application](https://btholt.github.io/complete-intro-to-react-v5/)*
 
 ## TODO: ##
+  * Checkout more in dept ESlint config files
+    * `parserOptions`
+    * `env`
 
+## Interesting ##
+  * 
 
 ## Tips & Tricks: ## 
-
+  * ESLint extension in VS Code
+  * Prettier extension in VS Code
+  * `package.json`
+    * "browserlist" - array for telling babel and postcss which browsers to compile code to work for
+  * Way to see what is coming in from `props` from router
+    * `return( <pre><code?>{JSON.stringify(props, null, 4)}</code></pre>)`
 
 # Sections #
 
@@ -27,13 +37,77 @@
   * Easy to use props declarations if use {} object destructuring in the props 
 
 ## npm, ESLint & Prettier ##
+  * `npm init -y` - creates project without the prompts
+  * Prettier - assistance to format project consistently
+    * `npm i -D prettier`
+    * Add calls to the *"scripts"* object of `package.json` for terminal commands
+      * `"format": "prettier \"src/**/*.{js,html}\" --write"` command for running prettier on `src` directory
+    * use file named `.pretterrc` as config file for specific project in root folder
+  * Prettier vs ESLint
+    * Prettier is about formatting and more mechanical
+    * ESLint is about code and more in dept of the proper code being written
+  * ESLint - tool for code analysis such as proper methods being called, syntax errors, etc
+    * use file named `.eslintrc.json` as config file for specific project in root folder
+    * rules levels - 0 = turn off - 1 = warn - 2 = error
+  * gitignore - stuff to be ignore with commits
+
 ## Parcel ##
+  * Similar to webpack but with less complexity
+  * No configuration
+  * bundle all code together with one for development and one for production
+  * will build the app and run it locally (see script for "dev")
+  * does "tree shaking" of modules
+  * Live code inclusion, only includes code that could potentially run
+  * Can actively install a registered package while app is built and running.  
+
 ## JSX ##
+  * Translation layer to take JS and create markup
+    * `React.createElement("h1", {}, "Zak")` => `<h2>Zal</h2>`
+  * `npm install -D ...`
+    * `babel-eslint` - allows eslint to be augmented by babel - helps eslint understand react better
+    * `eslint-plugin-import` - better rules about import/exporting
+    * `eslint-plugin-jsx-a11y` - accessibility catch
+    * `eslint-plugin-react` - helps with additional react rules
+
 ## Hooks ##
+  * React keeps track of hooks by their order in the code
+  * `npm i -D eslint-plugin-react-hooks` - official rules from the React team about writing hooks
+    * look at ESLint config file for rule additions
+  * Every time it changes it runs the `render()` method again
+  * map function note:
+    * using `key` as a identifer
+    * improves performance
+
 ## Effects ##
+  * `useEffect` - replaces several lifecycle methods
+    * componentDidMount
+    * componentWillUnmount
+    * componentDidUpdate
+    * disconnected from when the render happens, it scheduled to run AFTER the first render
+    * `[...]` - dependency array to manage when the hook will be ran
+    * `[]` - empty dependency array to only run once
+  * `useState` - replaces class constructor with state being declared
+    * returns value and a method to set the value
+  * More in-dept coverage of React Hooks in the Intermediate React course
+
 ## Dev Tools ##
+  * `NODE_ENV=development`
+    * developer tools built in to use when developing
+    * Parcel automatically sets this to dev when building but production when you tell it to
+  * `<React.StrictMode></React.StrictMode>` - Give additional warning about things you should not be doing
+    * Improper uses
+    * Things being deprecated
+  * React Devtools
+    * a must have
+  
 ## Handling Async ##
+  * `await` - similar to `.then()` but not needed. Will just return/wait for the response
+
 ## Reach Router ##
+  * Helpful for single-page-applications
+  * See tip/trick for displaying the props object
+  * `<Link />` - component used for routing
+
 ## Class Components ##
 ## Error Boundaries ##
 ## Context ##
