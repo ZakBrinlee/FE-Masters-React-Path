@@ -1,4 +1,4 @@
-# Complete Intro to Web Development, v2 #
+# Complete Intro to React, v5 #
 *[Frontend Masters Course](https://frontendmasters.com/courses/complete-react-v5/)*
 
 
