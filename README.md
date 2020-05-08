@@ -3,9 +3,9 @@ Coursework related to Frontend Masters React learning path
 
 ## Courses
 
-**<input type="checkbox" checked={true}/> [Complete Intro To React, V5](https://frontendmasters.com/courses/complete-react-v5/)**
+**[X] [Complete Intro To React, V5](https://frontendmasters.com/courses/complete-react-v5/)**
 
-**[X] [Intermediate React, V2](https://frontendmasters.com/courses/intermediate-react-v2/)**
+**[ ] [Intermediate React, V2](https://frontendmasters.com/courses/intermediate-react-v2/)**
 
 **[ ] [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/)**
 
