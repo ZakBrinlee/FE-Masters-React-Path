@@ -8,7 +8,10 @@
   * Checkout more in dept ESlint config files
     * `parserOptions`
     * `env`
-
+  * Look up 'lexically' and understand more about it
+    * see reference in section "Context" - 4 minutes into video
+  * Look into context and provider in dept
+    * [Context Docs](https://reactjs.org/docs/context.html)
 ## Interesting ##
   * 
 
@@ -19,6 +22,12 @@
     * "browserlist" - array for telling babel and postcss which browsers to compile code to work for
   * Way to see what is coming in from `props` from router
     * `return( <pre><code?>{JSON.stringify(props, null, 4)}</code></pre>)`
+  * You can import Google Analytics into your `"browserlist"`/`preset.env` to transpile specifically for your users.
+    * uses the browserlist package
+  * Any value that is returned from the DOM is of type string
+    * use a `+` in front of anything that comes back from the DOM will turn it into a number
+    * it is called a 'unary plus'
+    * https://scotch.io/tutorials/javascript-unary-operators-simple-and-useful
 
 # Sections #
 
@@ -107,16 +116,40 @@
   * Helpful for single-page-applications
   * See tip/trick for displaying the props object
   * `<Link />` - component used for routing
+  * `navigate` - used from '@reach/router' for navigating to outside URL
 
 ## Class Components ##
+  * `setState()` - is call a 'shallow merge' which may literally be `Object.assign(oldState, newState)`
+    * If there are any collisions then the new state will overwrite the old.
+  * in a `then()` method using a `function()` will cause `this.` to mean something else
+    * eg. `pet.animal(this.props.id).then(function({ animal })) {`
+    * this is in place of `then(({ animal }) => {` which is the correct way of doing it
+  * arrow functions do NOT create new context
+  * *Way to change having to use a constructor for declaring state*
+    * Using `state = {key: value}` is possible in React with a change to  babel.config
+    * This is a proposed change to JavaScript expect to be officially added in 2019-2020
+    * `npm install -D babel-eslint @babel/core @babel/preset-env @babel/plugin-proposal-class-properties @babel/preset-react`
+    * will also need to update `.eslintrc.json` file to tell eslint to use babel parser to understand the experimental code
+  * Can use `getDerivedStateFromProps()` to separate some of the logic out from using a map straight from props to create a smaller map first.
+  * use `bind()` in a class constructor to bind a the context of a DOM function to the class component
+    * `this.handleIndexClick = this.handleIndexClick.bind(this);`
+  * Also just use an arrow function which does not create new content but gets the state 'lexically'
+
 ## Error Boundaries ##
+  * Error boundaries allow you to capture errors without crashing app
+  * [Error Boundaries Doc](reactjs.org/docs/error-boundaries.html)
+
 ## Context ##
+  * [Context Docs](https://reactjs.org/docs/context.html)
+  * Look into context and provider in dept
+  * `useContext` is a hook
+  * `<ThemeContext.Consumer />` - reads off of the provider to use the context within it's children
+
 ## Portals and Refs ##
+  * `createPortal` - interesting function for rendering a component into a different part of app
+    * See how it is set up with ref and useEffect for un-mounting
+
 ## Conclusion ##
-## Hooks in Depth ##
-## Emotion ##
-## Code Splitting ##
-## TypeScript ##
-## Server Side Rendering ##
-## Redux ##
-## Testing ##
+  * Look into Preact
+    * smaller, slower app
+    * much smaller and good choice when targeting lower power/performance devices
