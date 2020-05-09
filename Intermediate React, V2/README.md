@@ -1,10 +1,10 @@
-# Intermediate React, v2
+# Intermediate React, v2 - course notes
 
 _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*react*v2/)_
 
 ## TODO:
 
-- Understand 'closure' and how it applies to state
+[ ] Understand 'closure' and how it applies to state
   - video by Kyle Simpson on 'closure'
   - [Deep Javascript Foundations v3 \* Closure](https://frontendmasters.com/courses/deep*javascript*v3/origin*of*closure/)
 
@@ -28,7 +28,7 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   - Covers application level state
   - Context component usually has state then returns with a Provider
 
-## Hooks In\*Depth
+## Hooks In-Depth
 
 - `useRef`
   - `.current` of ref will always be the value of that ref in current time
@@ -52,7 +52,6 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   - used to have a child control the parent by reversing the data flow
 
 ## CSS in JS
-
 -
 
 ## Code Splitting
