@@ -1,4 +1,4 @@
-# Complete Intro to React, v5  - course notes#
+# Complete Intro to React, v5  - course notes #
 
 *[Frontend Masters Course](https://frontendmasters.com/courses/complete-react-v5/)*
 
@@ -6,12 +6,12 @@
 *[Presentation slides/application](https://btholt.github.io/complete-intro-to-react-v5/)*
 
 ## TODO: ##
-  [ ] Checkout more in dept ESlint config files
+  * [ ] Checkout more in dept ESlint config files
     * `parserOptions`
     * `env`
-  [ ] Look up 'lexically' and understand more about it
+  * [ ] Look up 'lexically' and understand more about it
     * see reference in section "Context" - 4 minutes into video
-  [ ] Look into context and provider in dept
+  * [ ] Look into context and provider in dept
     * [Context Docs](https://reactjs.org/docs/context.html)
 
 ## Tips & Tricks: ## 
