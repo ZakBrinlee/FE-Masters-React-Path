@@ -7,6 +7,11 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
 [ ] Understand 'closure' and how it applies to state
   - video by Kyle Simpson on 'closure'
   - [Deep Javascript Foundations v3 \* Closure](https://frontendmasters.com/courses/deep*javascript*v3/origin*of*closure/)
+[ ] Learn in-dept typescript and configuration
+  * ^ Added at beginning of typescript section
+  * Check out default tsl rules and common setups for tsl config files
+  * 
+
 
 ## Tips & Tricks:
 
@@ -73,7 +78,7 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   * Interesting use with `<Modal/>` or `<Snackbar/>`
 
 ## Server Side Rendering
-  * completed section commit [Here]()
+  * completed section commit [Here](https://github.com/ZakBrinlee/FE-Masters-React-Path/commit/437bbd224a834db6019df70c666d9c5b07364813)
   * Why SSR
     * Allows all of the application to be written in React, pre-render everything with markup and wait for React to take over once loaded
   * `hydrate()` - expects markup and doesn't re-render when js loads
@@ -86,7 +91,31 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   * `renderToNodeStream()` - a kind of progressive loading, loads and sends chunks at a time
 
 ## TypeScript with React
-
+  * completed section commit [Here]()
+  * saves you from runtime production errors due to types
+  * inline documentation as writing code using the `.`
+  * Install and configure *typescript* for React
+    * `npm install -D typescript`
+    * `npx tsc --init` - npx: runs npm binaries for you - tsc: typescript compiler - --init: starts a typescript project
+  * `tsconfig.json` - typescript settings
+  * Packages like *React* are not written in TypeScript
+    * [DefinetelyTyped](https://definitelytyped.org/)
+      * Allows people to write types for libraries they don't control
+      * `npm install -D @types/react @types/react-dom @types/reach__router`
+  * By default tps does not check `.js` files
+    * Telling it with the right stuff so it knows which rules to apply. eg. *HTMLELEMENT type will have the rules and properties of that type applied*
+  * ESLint vs TSLint
+    * plans to get rid of TSLint and move everything/everyone over to ESLint
+    * TSLint is better at working with tps than ESLint
+  * `npm uninstall eslint babel-eslint eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks`
+    * removes all of preinstalled esl from previous exercises to be replaced with tsl
+  * `npm install -D tslint tslint-react tslint-config-prettier`
+  * If something is declared as `private` - tps will catch it and not allow
+  * [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+    * Type refinement
+    * more advanced ways to model types
+  * Con of typescript is it something forces defensive programming to a level where it is not necessary
+  
 ## Redux
 
 ## Testing React
