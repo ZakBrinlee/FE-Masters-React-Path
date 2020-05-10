@@ -62,7 +62,7 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   * if you delete a component then you delete the styling with it, useful for not having unused css code
 
 ## Code Splitting
-  * completed section commit [Here]()
+  * completed section commit [Here](https://github.com/ZakBrinlee/FE-Masters-React-Path/commit/4df2f5c5c6b58e2aa90979e1063cd639a0abca42)
   * Essential for small application
   * Idea behind not loading everything up front for faster time to paint
   * `lazy` - a placeholder to be used/called when the component is tried to be rendered for the first time
@@ -72,9 +72,18 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   * Code splitting should be done/targeted at components of 30kb or more
   * Interesting use with `<Modal/>` or `<Snackbar/>`
 
-
-
 ## Server Side Rendering
+  * completed section commit [Here]()
+  * Why SSR
+    * Allows all of the application to be written in React, pre-render everything with markup and wait for React to take over once loaded
+  * `hydrate()` - expects markup and doesn't re-render when js loads
+  * `npm install babel-cli express`
+    * `babel-cli` - because React needs to run through babel since Nodejs doesn't speak JSX
+    * `express` - one of many node frameworks
+    * see addition to "scripts" for "build" and "start"
+  * `npm install express @babel/node`
+  * able to define all route in client side but node is still able to understand and use them
+  * `renderToNodeStream()` - a kind of progressive loading, loads and sends chunks at a time
 
 ## TypeScript with React
 
