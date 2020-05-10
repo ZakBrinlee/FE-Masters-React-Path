@@ -5,29 +5,6 @@
 
 *[Presentation slides/application](https://btholt.github.io/complete-intro-to-react-v5/)*
 
-## TODO: ##
-  * [ ] Checkout more in dept ESlint config files
-    * `parserOptions`
-    * `env`
-  * [ ] Look up 'lexically' and understand more about it
-    * see reference in section "Context" - 4 minutes into video
-  * [ ] Look into context and provider in dept
-    * [Context Docs](https://reactjs.org/docs/context.html)
-
-## Tips & Tricks: ## 
-  * ESLint extension in VS Code
-  * Prettier extension in VS Code
-  * `package.json`
-    * "browserlist" - array for telling babel and postcss which browsers to compile code to work for
-  * Way to see what is coming in from `props` from router
-    * `return( <pre><code?>{JSON.stringify(props, null, 4)}</code></pre>)`
-  * You can import Google Analytics into your `"browserlist"`/`preset.env` to transpile specifically for your users.
-    * uses the browserlist package
-  * Any value that is returned from the DOM is of type string
-    * use a `+` in front of anything that comes back from the DOM will turn it into a number
-    * it is called a 'unary plus'
-    * https://scotch.io/tutorials/javascript-unary-operators-simple-and-useful
-
 # Sections #
 
 ## Introduction ##

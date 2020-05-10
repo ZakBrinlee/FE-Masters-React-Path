@@ -2,22 +2,9 @@
 
 _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*react*v2/)_
 
-## TODO:
-[ ] Understand 'closure' and how it applies to state
-  * video by Kyle Simpson on 'closure'
-  * [Deep Javascript Foundations v3 \* Closure](https://frontendmasters.com/courses/deep*javascript*v3/origin*of*closure/)
-[ ] Learn in-dept typescript and configuration
-  * Check out default tsl rules and common setups for tsl config files
-[ ] Gain a better understanding of Istanbul and test-coverage
-  * [Istanbul test coverage tool](https://istanbul.js.org/)
-
-## Tips & Tricks:
-  * Once a unit test passes, it is good to ensure it will fail correctly as well
-
 # Sections
 
 ## Basic Hooks
-
 - Link to sandbox used in example [Here](https://codesandbox.io/s/github/btholt/react*hooks*examples/tree/master/)
 - `useState`
   - returns an array of two object
