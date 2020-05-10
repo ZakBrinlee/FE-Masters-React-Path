@@ -1,7 +1,7 @@
 # FE-Masters-React-Path
 Coursework related to Frontend Masters React learning path
 
-## TODO from course notes:
+### TODO from course notes: ###
   *Complete Intro to React, v5*
   * [ ] Checkout more in dept ESlint config files
     * `parserOptions`
@@ -10,16 +10,17 @@ Coursework related to Frontend Masters React learning path
     * see reference in section "Context" - 4 minutes into video
   * [ ] Look into context and provider in dept
     * [Context Docs](https://reactjs.org/docs/context.html)
+
   *Intermediate React, v2*
-  [ ] Understand 'closure' and how it applies to state
+  * [ ] Understand 'closure' and how it applies to state
     * video by Kyle Simpson on 'closure'
     * [Deep Javascript Foundations v3 \* Closure](https://frontendmasters.com/courses/deep*javascript*v3/origin*of*closure/)
-  [ ] Learn in-dept typescript and configuration
+  * [ ] Learn in-dept typescript and configuration
     * Check out default tsl rules and common setups for tsl config files
-  [ ] Gain a better understanding of Istanbul and test-coverage
+  * [ ] Gain a better understanding of Istanbul and test-coverage
     * [Istanbul test coverage tool](https://istanbul.js.org/)
 
-## Tips & Tricks from course notes:
+### Tips & Tricks from course notes: ###
   *Complete Intro to React, v5*
   * ESLint extension in VS Code
   * Prettier extension in VS Code
@@ -33,6 +34,7 @@ Coursework related to Frontend Masters React learning path
     * use a `+` in front of anything that comes back from the DOM will turn it into a number
     * it is called a 'unary plus'
     * https://scotch.io/tutorials/javascript-unary-operators-simple-and-useful
+
   *Intermediate React, v2*
   * Once a unit test passes, it is good to ensure it will fail correctly as well
 
