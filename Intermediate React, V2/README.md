@@ -52,9 +52,27 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   - used to have a child control the parent by reversing the data flow
 
 ## CSS in JS
--
+- completed section commit [Here](https://github.com/ZakBrinlee/FE-Masters-React-Path/commit/693e910d7e2ff73084853a76eeb8a2622666a378)
+* [Emotion](https://emotion.sh/docs/introduction)
+  * `npm install @emotion/core @emotion/babel-preset-css-prop`
+  * requires some configuration with babel config
+  * library designed for writing css styles with JavaScript
+  * uses in element styling
+  * interesting use for making code more modular
+  * if you delete a component then you delete the styling with it, useful for not having unused css code
 
 ## Code Splitting
+  * completed section commit [Here]()
+  * Essential for small application
+  * Idea behind not loading everything up front for faster time to paint
+  * `lazy` - a placeholder to be used/called when the component is tried to be rendered for the first time
+    * think of example of yotpo review tab on PDP page of TPCI project
+  * `<Suspense />` - a component with a fallback for when anything in the router is loading
+  * uses dynamic import, parcel is smart enough to know to code split the component into a separate bundle
+  * Code splitting should be done/targeted at components of 30kb or more
+  * Interesting use with `<Modal/>` or `<Snackbar/>`
+
+
 
 ## Server Side Rendering
 
