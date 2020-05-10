@@ -3,17 +3,16 @@
 _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*react*v2/)_
 
 ## TODO:
-
 [ ] Understand 'closure' and how it applies to state
-  - video by Kyle Simpson on 'closure'
-  - [Deep Javascript Foundations v3 \* Closure](https://frontendmasters.com/courses/deep*javascript*v3/origin*of*closure/)
+  * video by Kyle Simpson on 'closure'
+  * [Deep Javascript Foundations v3 \* Closure](https://frontendmasters.com/courses/deep*javascript*v3/origin*of*closure/)
 [ ] Learn in-dept typescript and configuration
-  * ^ Added at beginning of typescript section
   * Check out default tsl rules and common setups for tsl config files
-  * 
-
+[ ] Gain a better understanding of Istanbul and test-coverage
+  * [Istanbul test coverage tool](https://istanbul.js.org/)
 
 ## Tips & Tricks:
+  * Once a unit test passes, it is good to ensure it will fail correctly as well
 
 # Sections
 
@@ -131,3 +130,17 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   * Can use redux dev tools to generate unit tests for redux
 
 ## Testing React
+  * Section will use Jest and React Testing Library
+    * `npm install -D jest react-testing-library`
+  * using naming convention `__{name}__` with double underscores, called 'dunders' - it means something is looking for this and must be called this
+  * `jest.fn()` is a function to be testing that it has been called and with the correct data
+  * use `data-testid` attribute for decoupling test logic from normal logic
+  * `toMatchInlineSnapshot()` - takes snapshot of markup and expects to match that exactly
+    * low effort and low confidence tests
+    * can run `npm run test -- -u` - which tells jest to update
+  * `npm run jest --watch` - Goes into interactive mode and rerun tests that are failing when code is saved
+  * `npm run jest --coverage` - will run Istanbul which is a test coverage tool
+    * [Istanbul test coverage tool](https://istanbul.js.org/)
+  * Can look deeper into the results with looking at coverage directory
+    * `cd coverage/lcov-report/` => `open index.html`
+      * This will open a nice dashboard of coverage

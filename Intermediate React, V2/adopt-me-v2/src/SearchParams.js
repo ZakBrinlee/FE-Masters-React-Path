@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
-import { connect } from "react-redux";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
-import changeLocation from "./actionCreators/changeLocation";
-import changeTheme from "./actionCreators/changeTheme";
+import ThemeContext from "./ThemeContext";
 
-const SearchParams = ({ theme, location, setTheme, updateLocation }) => {
+const SearchParams = () => {
+  const [theme, setTheme] = useContext(ThemeContext);
+  const [location, updateLocation] = useState("Seattle, WA");
   const [breeds, updateBreeds] = useState([]);
   const [pets, setPets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
 
-  async function requestPets() {
-    const { animals } = await pet.animals({
-      location,
-      breed,
-      type: animal,
-    });
-
-    console.log("animals", animals);
-
-    setPets(animals || []);
+  function requestPets() {
+    pet
+      .animals({
+        location,
+        breed,
+        type: animal
+      })
+      .then(({ animals }) => {
+        setPets(animals || []);
+      });
   }
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const SearchParams = ({ theme, location, setTheme, updateLocation }) => {
   return (
     <div className="search-params">
       <form
-        onSubmit={(e) => {
+        onSubmit={e => {
           e.preventDefault();
           requestPets();
         }}
@@ -48,7 +48,7 @@ const SearchParams = ({ theme, location, setTheme, updateLocation }) => {
             id="location"
             value={location}
             placeholder="Location"
-            onChange={(e) => updateLocation(e.target.value)}
+            onChange={e => updateLocation(e.target.value)}
           />
         </label>
         <AnimalDropdown />
@@ -57,8 +57,8 @@ const SearchParams = ({ theme, location, setTheme, updateLocation }) => {
           Theme
           <select
             value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-            onBlur={(e) => setTheme(e.target.value)}
+            onChange={e => setTheme(e.target.value)}
+            onBlur={e => setTheme(e.target.value)}
           >
             <option value="peru">Peru</option>
             <option value="darkblue">Dark Blue</option>
@@ -73,18 +73,4 @@ const SearchParams = ({ theme, location, setTheme, updateLocation }) => {
   );
 };
 
-const mapStateToProps = ({ theme, location }) => ({
-  theme,
-  location,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setLocation(location) {
-    dispatch(changeLocation(location));
-  },
-  setTheme(theme) {
-    dispatch(changeTheme(theme));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchParams);
+export default SearchParams;

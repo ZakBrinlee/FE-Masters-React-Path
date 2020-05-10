@@ -1,7 +1,6 @@
 import React from "react";
 import pet from "@frontendmasters/pet";
 import { navigate } from "@reach/router";
-import { connect } from "react-redux";
 import Carousel from "./Carousel";
 import Modal from "./Modal";
 import ErrorBoundary from "./ErrorBoundary";
@@ -14,17 +13,19 @@ class Details extends React.Component {
       .animal(this.props.id)
       .then(({ animal }) => {
         this.setState({
+          url: animal.url,
           name: animal.name,
           animal: animal.type,
-          location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
+          location: `${animal.contact.address.city}, ${
+            animal.contact.address.state
+          }`,
           description: animal.description,
           media: animal.photos,
           breed: animal.breeds.primary,
-          url: animal.url,
-          loading: false,
+          loading: false
         });
       })
-      .catch((err) => this.setState({ error: err }));
+      .catch(err => this.setState({ error: err }));
   }
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
   adopt = () => navigate(this.state.url);
@@ -40,7 +41,7 @@ class Details extends React.Component {
       description,
       media,
       name,
-      showModal,
+      showModal
     } = this.state;
 
     return (
@@ -49,19 +50,23 @@ class Details extends React.Component {
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} — ${breed} — ${location}`}</h2>
-          <button
-            style={{ backgroundColor: this.props.theme }}
-            onClick={this.toggleModal}
-          >
-            Adopt {name}
-          </button>
+          <ThemeContext.Consumer>
+            {([theme]) => (
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: theme }}
+              >
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
           <p>{description}</p>
           {showModal ? (
             <Modal>
               <h1>Would you like to adopt {name}?</h1>
               <div className="buttons">
                 <button onClick={this.adopt}>Yes</button>
-                <button onClick={this.toggleModal}>No</button>
+                <button onClick={this.toggleModal}>No, I am a monster</button>
               </div>
             </Modal>
           ) : null}
@@ -71,14 +76,10 @@ class Details extends React.Component {
   }
 }
 
-const mapStateToProps = ({ theme }) => ({ theme });
-
-const WrappedDetails = connect(mapStateToProps)(Details);
-
 export default function DetailsErrorBoundary(props) {
   return (
     <ErrorBoundary>
-      <WrappedDetails {...props} />
+      <Details {...props} />
     </ErrorBoundary>
   );
 }
