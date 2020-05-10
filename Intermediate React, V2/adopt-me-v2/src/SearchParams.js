@@ -1,22 +1,16 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  FunctionComponent,
-} from "react";
-import pet, { ANIMALS, Animal } from "@frontendmasters/pet";
+import React, { useState, useEffect } from "react";
+import pet, { ANIMALS } from "@frontendmasters/pet";
+import { connect } from "react-redux";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
-import ThemeContext from "./ThemeContext";
-import { RouteComponentProps } from "@reach/router";
+import changeLocation from "./actionCreators/changeLocation";
+import changeTheme from "./actionCreators/changeTheme";
 
-const SearchParams: FunctionComponent<RouteComponentProps> = () => {
-  const [location, updateLocation] = useState("Seattle, WA");
-  const [breeds, updateBreeds] = useState([] as string[]);
-  const [pets, setPets] = useState([] as Animal[]);
+const SearchParams = ({ theme, location, setTheme, updateLocation }) => {
+  const [breeds, updateBreeds] = useState([]);
+  const [pets, setPets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
-  const [theme, setTheme] = useContext(ThemeContext);
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -24,6 +18,8 @@ const SearchParams: FunctionComponent<RouteComponentProps> = () => {
       breed,
       type: animal,
     });
+
+    console.log("animals", animals);
 
     setPets(animals || []);
   }
@@ -57,7 +53,7 @@ const SearchParams: FunctionComponent<RouteComponentProps> = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
-        <label htmlFor="theme">
+        <label htmlFor="location">
           Theme
           <select
             value={theme}
@@ -65,10 +61,9 @@ const SearchParams: FunctionComponent<RouteComponentProps> = () => {
             onBlur={(e) => setTheme(e.target.value)}
           >
             <option value="peru">Peru</option>
-            <option value="green">Green</option>
             <option value="darkblue">Dark Blue</option>
+            <option value="chartreuse">Chartreuse</option>
             <option value="mediumorchid">Medium Orchid</option>
-            <option value="Chartreuse">Chartreuse</option>
           </select>
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
@@ -78,4 +73,18 @@ const SearchParams: FunctionComponent<RouteComponentProps> = () => {
   );
 };
 
-export default SearchParams;
+const mapStateToProps = ({ theme, location }) => ({
+  theme,
+  location,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setLocation(location) {
+    dispatch(changeLocation(location));
+  },
+  setTheme(theme) {
+    dispatch(changeTheme(theme));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchParams);

@@ -91,13 +91,13 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
   * `renderToNodeStream()` - a kind of progressive loading, loads and sends chunks at a time
 
 ## TypeScript with React
-  * completed section commit [Here]()
+  * completed section commit [Here](https://github.com/ZakBrinlee/FE-Masters-React-Path/commit/e7c8c79a41dd80d7769cd821214393d37404281f)
   * saves you from runtime production errors due to types
   * inline documentation as writing code using the `.`
-  * Install and configure *typescript* for React
+  * Install and configure *TypeScript* for React
     * `npm install -D typescript`
-    * `npx tsc --init` - npx: runs npm binaries for you - tsc: typescript compiler - --init: starts a typescript project
-  * `tsconfig.json` - typescript settings
+    * `npx TypeScript --init` - npx: runs npm binaries for you - TypeScript: TypeScript compiler - --init: starts a TypeScript project
+  * `TypeScriptonfig.json` - TypeScript settings
   * Packages like *React* are not written in TypeScript
     * [DefinetelyTyped](https://definitelytyped.org/)
       * Allows people to write types for libraries they don't control
@@ -108,14 +108,26 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/intermediate*reac
     * plans to get rid of TSLint and move everything/everyone over to ESLint
     * TSLint is better at working with tps than ESLint
   * `npm uninstall eslint babel-eslint eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks`
-    * removes all of preinstalled esl from previous exercises to be replaced with tsl
+    * removes all of preinstalled ESLint from previous exercises to be replaced with TSLint
   * `npm install -D tslint tslint-react tslint-config-prettier`
   * If something is declared as `private` - tps will catch it and not allow
   * [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
     * Type refinement
     * more advanced ways to model types
-  * Con of typescript is it something forces defensive programming to a level where it is not necessary
+  * Con of TypeScript is it something forces defensive programming to a level where it is not necessary
   
 ## Redux
+  * Why - Central repository for state in an application
+    * Every step is testable - able to observe how the state changes clearly
+    * Very small library
+  * Becoming less popular with solid context API and hooks like `useReducer`
+  * Sagas help with multiple asynchronous calls and maintaining their order
+    * [Advanced State Management in React (feat. Redux and MobX)](https://frontendmasters.com/courses/react-state/)
+  * `npm i redux react-redux`
+  * Reducers - simple i/o for how state should change depending on action being provided
+    * Required - every action *must* have a `type`
+    * [Document about how actions should look](https://github.com/redux-utilities/flux-standard-action)
+      * Written by a co-creator of Redux
+  * Can use redux dev tools to generate unit tests for redux
 
 ## Testing React

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Router, Link } from "@reach/router";
+import { Provider } from "react-redux";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-import ThemeContext from "./ThemeContext";
 import ReactDOM from "react-dom";
+import store from "./store";
 
 const App = () => {
-  const themeHook = useState("");
   return (
-    <ThemeContext.Provider value={themeHook}>
+    <Provider store={store}>
       <div>
         <header>
           <Link to="/">Adopt Me!</Link>
@@ -18,7 +18,7 @@ const App = () => {
           <Details path="/details/:id" />
         </Router>
       </div>
-    </ThemeContext.Provider>
+    </Provider>
   );
 };
 
