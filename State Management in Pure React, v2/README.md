@@ -72,10 +72,18 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/pure-react-state/
     * Gives you the function rather than the result
   * General idea is to separate the state from the actual components and all needed was `dispatch`
 ## Context
-  
+  * Context API - allows to solve the problem of prop drilling without needing to use something like Redux or MobX
+    * > "Context provides a way to pass data through the component tree without having to pass props down manually at every level" - from Context API docs
+  * Prop Drilling - occurs when you have deep component trees
+  * `React.createContext()`
+    * returns two components - `Provider` & `Consumer`
+  * Provides some autonomy for components as components can reach their dependent data from anywhere
 
 ## Data Fetching
-  
+  * Can create and use an `async` function within `useEffect`
+    * `useEffect` itself cannot be async
+  * `useReducer` is a great tool for managing the response and any manipulation to the data
+  * Custom hooks are a great way to handle fetching
 
 ## Thunks
 
