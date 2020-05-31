@@ -1,71 +1,64 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
+const useLocalStorage = (initialState, key) => {
+  const get = () => {
+    const storage = localStorage.getItem(key);
+    if (storage) return JSON.parse(storage).value;
+    return initialState;
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.updateDocumentTitle = this.updateDocumentTitle.bind(this);
+  const [value, setValue] = useState(get());
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify({ value }));
+  }, [value, key]);
+
+  return [value, setValue];
+};
+
+const Counter = ({ step }) => {
+  const [count, setCount] = useLocalStorage(0, 'count');
+  const countRef = React.useRef();
+
+  let message = '';
+  if (countRef.current > count && count !== 0) {
+    message = 'Lower';
+  } else if (countRef.current < count && count !== 0) {
+    message = 'Higher';
   }
 
-  handleClick(type) {
-    const { max, step } = this.props;
+  countRef.current = count;
 
-    switch (type) {
-      case 'increment':
-        this.setState(
-          (state) => {
-            if (state.count >= max) return;
-            return { count: state.count + step };
-          },
-          () => this.updateDocumentTitle(),
-        );
-        break;
-      case 'decrement':
-        this.setState(
-          (state) => {
-            return { count: state.count - step };
-          },
-          () => this.updateDocumentTitle(),
-        );
-        break;
-      case 'reset':
-        this.setState(
-          () => {
-            return { count: 0 };
-          },
-          () => this.updateDocumentTitle(),
-        );
-        break;
-      default:
-        break;
-    }
-  }
+  const increment = () => {
+    setCount(count + 1);
+  };
 
-  updateDocumentTitle() {
-    document.title = `Count: ${this.state.count}`;
-  }
+  const decrement = () => setCount(count - step);
+  const reset = () => setCount(0);
 
-  render() {
-    const { count } = this.state;
-    return (
-      <div className="Counter">
-        <p className="count">{count}</p>
-        <section className="controls">
-          <button onClick={() => this.handleClick('increment')}>
-            Increment
-          </button>
-          <button onClick={() => this.handleClick('decrement')}>
-            Decrement
-          </button>
-          <button onClick={() => this.handleClick('reset')}>Reset</button>
-        </section>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    document.title = `Counter: ${count}`;
+  }, [count]);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      console.log('Count: ', count);
+    }, 3000);
+
+    return () => clearInterval(id);
+  }, [count]);
+
+  return (
+    <div className="Counter">
+      <p>{message}</p>
+      <p className="count">{count}</p>
+      <section className="controls">
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
+      </section>
+    </div>
+  );
+};
 
 export default Counter;

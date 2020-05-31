@@ -46,9 +46,20 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/pure-react-state/
       * eg. `fullName: props.firstName + ' ' + props.lastName`
     * Instead use destructuring in render method.
     * *Don't use state for things you are not going to render*
-    * 
-## Hooks State
 
+## Hooks State
+  * Hooks allow us to manipulate state in functional components
+  * `useState`
+    * setting rules in the `set--` function of `useState` does not work like class base state
+    * Does not merge state so it will not handle undefined or null in the same way. Should always return something with `useState`
+  * `useEffect`
+    * Anything that is not the return value is a side effect
+      * console logs are side effects
+    * `useEffect` is essentially the same as `componentDidUpdate` but it targets a certain prop or every re-render.
+    * Gives the ability to define dependencies as well as gives the ability to clean up after itself.
+  * In Javascript we pass objects by reference and primitives by value
+  * 
+  
 
 ## Reducers
 
