@@ -58,12 +58,19 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/pure-react-state/
     * `useEffect` is essentially the same as `componentDidUpdate` but it targets a certain prop or every re-render.
     * Gives the ability to define dependencies as well as gives the ability to clean up after itself.
   * In Javascript we pass objects by reference and primitives by value
-  * 
-  
 
 ## Reducers
-
-
+  * *`useReducer`*
+  * If you mutate an object, an array, they are the same reference in memory.
+    * React can't tell that it is different just because the keys/values may be difference
+  * Very easy to test because it simplifies the mutation
+  * `React.memo()`
+    * Takes a function component and returns one that will not render it again if it receives the same props
+  * `useMemo`
+    * It will call the functions as dependencies change
+  * `useCallback` 
+    * Gives you the function rather than the result
+  * General idea is to separate the state from the actual components and all needed was `dispatch`
 ## Context
   
 
