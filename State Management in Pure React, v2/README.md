@@ -2,11 +2,6 @@
 
 _[Frontend Masters Course](https://frontendmasters.com/courses/pure-react-state/)_
 
-### TODO: ###
-  * [ ] 
-    * 
-  
-
 ### Tips & Tricks: ###
   * `JSON.parse()` - does not like being passed `undefined` or `null`
 
@@ -99,6 +94,9 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/pure-react-state/
   * Major idea - code will be executed later
   * Example uses the `id` of the character in the url as state to read from for fetch call. Same ways done with TPCI Products/Orders
 
-
 ## Wrapping Up
-
+  * [Collection of React Hooks](https://nikgraf.github.io/react-hooks/)
+    * Awesome collection of Hooks libraries that you can install and use
+    * Same as with any third-party library - needs to be vetted for quality and need of library
+  * State Management is complex and any approach tends to have some trade-offs. Developers needs to try and understand the problem and their solution and the impact it may have on the application
+    * This also means looking at external aspects such as performance and maintainability
