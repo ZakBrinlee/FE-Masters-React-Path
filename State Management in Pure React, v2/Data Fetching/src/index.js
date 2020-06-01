@@ -1,61 +1,87 @@
-import React from 'react';
+import React, { useReducer, useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import isFunction from 'lodash/isFunction';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import CharacterList from './CharacterList';
+import CharacterView from './CharacterView';
+
 import endpoint from './endpoint';
+
 import './styles.scss';
 
-const initialState = {
-  result: null,
-  loading: true,
-  error: null,
-};
-
-const fetchReducer = (state, action) => {
+const reducer = (state, action) => {
   if (action.type === 'LOADING') {
     return {
-      result: null,
+      characters: [],
       loading: true,
       error: null,
     };
   }
 
   if (action.type === 'RESPONSE_COMPLETE') {
-    return { result: action.payload.response, loading: false, error: null };
+    return {
+      characters: action.payload.characters,
+      loading: false,
+      error: null,
+    };
   }
 
-  if (action.type === 'RESPONSE_ERROR') {
-    return { result: null, loading: false, error: action.payload.error };
+  if (action.type === 'ERROR') {
+    return {
+      characters: [],
+      loading: false,
+      error: action.payload.error,
+    };
   }
 
   return state;
 };
 
-const useFetch = (url) => {
-  const [state, dispatch] = React.useReducer(fetchReducer, initialState);
+const initialState = {
+  error: null,
+  loading: false,
+  characters: [],
+};
 
-  React.useEffect(() => {
-    dispatch({ type: 'LOADING' });
+const fetchCharacters = (dispatch) => {
+  dispatch({ type: 'LOADING' });
+  fetch(endpoint + '/characters')
+    .then((response) => response.json())
+    .then((response) =>
+      dispatch({
+        type: 'RESPONSE_COMPLETE',
+        payload: { characters: response.characters },
+      }),
+    )
+    .catch((error) => dispatch({ type: 'ERROR', payload: { error } }));
+};
 
-    const fetchUrl = async () => {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        dispatch({ type: 'RESPONSE_COMPLETE', payload: { response: data } });
-      } catch (error) {
-        dispatch({ type: 'RESPONSE_ERROR', payload: { error } });
+const useThunkReducer = (reducer, initialState) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const enhancedDispatch = useCallback(
+    (action) => {
+      if (isFunction(action)) {
+        action(dispatch);
+      } else {
+        dispatch(action);
       }
-    };
+    },
+    [dispatch],
+  );
 
-    fetchUrl();
-  }, [url]);
-
-  return [state.result, state.loading, state.error];
+  return [state, enhancedDispatch];
 };
 
 const Application = () => {
-  const [response, loading, error] = useFetch(endpoint + '/characters');
-  const characters = (response && response.characters) || [];
+  const [state, dispatch] = useThunkReducer(reducer, initialState);
+  const { characters } = state;
+
+  useEffect(() => {
+    dispatch((dispatch) => {});
+  }, []);
 
   return (
     <div className="Application">
@@ -64,8 +90,13 @@ const Application = () => {
       </header>
       <main>
         <section className="sidebar">
-          {loading ? <p>Loading</p> : <CharacterList characters={characters} />}
-          {error && <p className="error">{error.message}</p>}
+          <button onClick={() => dispatch(fetchCharacters)}>
+            Fetch Characters
+          </button>
+          <CharacterList characters={characters} />
+        </section>
+        <section className="CharacterView">
+          <Route path="/characters/:id" component={CharacterView} />
         </section>
       </main>
     </div>

@@ -86,6 +86,19 @@ _[Frontend Masters Course](https://frontendmasters.com/courses/pure-react-state/
   * Custom hooks are a great way to handle fetching
 
 ## Thunks
+  * What is a *Thunk*?
+    *  *thunk (noun):* a function returned from another function
+    * Middleware - reducers do not have a concept of async
+  * ```javascript
+    function definitelyNotAThunk() {
+      return function aThunk() {
+        console.log('Hello, I am a thunk.')
+      }
+    }
+    ```
+  * Major idea - code will be executed later
+  * Example uses the `id` of the character in the url as state to read from for fetch call. Same ways done with TPCI Products/Orders
+
 
 ## Wrapping Up
 
