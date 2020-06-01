@@ -38,14 +38,19 @@ Coursework related to Frontend Masters React learning path
   *Intermediate React, v2*
   * Once a unit test passes, it is good to ensure it will fail correctly as well
 
-  
+  *State Management in Pure React, V2*
+  * `JSON.parse()` - does not like being passed `undefined` or `null`
+
+### Resources ##
+  * [Collection of React Hooks](https://nikgraf.github.io/react-hooks/)
+
 ## Courses
 
 **[X] [Complete Intro To React, V5](https://frontendmasters.com/courses/complete-react-v5/)**
 
 **[X] [Intermediate React, V2](https://frontendmasters.com/courses/intermediate-react-v2/)**
 
-**[ ] [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/)**
+**[X] [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/)**
 
 ## Elective Coursework ##
 
