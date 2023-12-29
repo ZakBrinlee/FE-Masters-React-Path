@@ -39,8 +39,22 @@
 - useReducer
   -- Simple function that takes in state, an action and gives back a new state
   -- Elegant way to handle complex interaction that changes state over time
+- useLayoutEffect
+  -- Happens syncronizously after the thing has been rendered
+  -- Useful to measure a component on rerender
+- useId
+  -- Unique identifer per instanciant of a component is consistent. SSR and CSR
+- [Other Hooks](https://react-v8.holt.courses/lessons/hooks-in-depth/others) - Deeper summaries for the following hooks
+  -- useImperativeHandle
+  -- useDebugValue
+  -- useDefferedValue
+  -- useTransition
+  -- useSyncExternalStore
+  -- useInsertionEffect
 
 ## Tailwind CSS
+
+-
 
 ## Advanced React Performance
 
