@@ -61,9 +61,12 @@
 - Load the bare minimum to load and let the user see what is needed, then load the rest later
 - `chunk_**` files in network tab is React splitting code into smaller chunks with just what is needed
 ## Low Priority Re-Rendering
-
+- `useDefferredValue`
+-- useDeferredValue takes in a value and gives you a cached version of it: that cached version may be current or it may a stale one as it works through a re-render. Evenutally it will be the current one
+-- then need to use that cached version. So we use `useMemo` to make a version of the component that can be used and won't change until the deferredPets value changes (otherwise it'll just re-render every time anyway)
 ## Typescript
-
+- Great setup config for React/Typescript and linter
+-- https://react-v8.holt.courses/lessons/typescript/typescript-and-eslint
 ## Redux
 
 ## Testing
