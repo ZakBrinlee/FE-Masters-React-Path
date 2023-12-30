@@ -4,17 +4,18 @@ import { useQuery } from "@tanstack/react-query";
 import fetchSearch from "./fetchSearch";
 import { useContext, useState } from "react";
 import AdoptedPetContext from "./AdoptedPetContext";
+import { Animal } from "./APIResponsesTypes";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [adoptedPet] = useContext(AdoptedPetContext);
   const [requestParams, setRequestParams] = useState({
     location: "",
-    animal: "",
+    animal: "" as Animal,
     breed: "",
   });
-  const [animal, setAnimal] = useState("");
+  const [animal, updateAnimal] = useState("" as Animal);
 
   const [breeds] = useBreedList(animal);
 
@@ -26,11 +27,12 @@ const SearchParams = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const formData = new FormData(e.target);
+          const formData = new FormData(e.currentTarget);
           const obj = {
-            animal: formData.get("animal") ?? "",
-            breed: formData.get("breed") ?? "",
-            location: formData.get("location") ?? "",
+            animal:
+              (formData.get("animal")?.toString() as Animal) ?? ("" as Animal),
+            breed: formData.get("breed")?.toString() ?? "",
+            location: formData.get("location")?.toString() ?? "",
           };
           setRequestParams(obj);
         }}
@@ -50,10 +52,10 @@ const SearchParams = () => {
             id="animal"
             name="animal"
             onChange={(e) => {
-              setAnimal(e.target.value);
+              updateAnimal(e.target.value as Animal);
             }}
             onBlur={(e) => {
-              setAnimal(e.target.value);
+              updateAnimal(e.target.value as Animal);
             }}
           >
             <option />
