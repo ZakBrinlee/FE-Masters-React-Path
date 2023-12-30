@@ -16,7 +16,7 @@
 - []() -
 
 ## Top Level Notes
-
+- Think about a metric to measure your app by to check performance. What is an acceptable time to load for your audience, app type, etc
 - Do not use the `useMemo` hook before having an actual performance problem to solve for
 
 ## Questions
@@ -54,10 +54,12 @@
 
 ## Tailwind CSS
 
--
-
 ## Advanced React Performance
-
+### Code Splitting
+- React is 40kb(ish) just for the framework
+- Allows framework (vite) to identify spots where code can be separated and loaded later. 
+- Load the bare minimum to load and let the user see what is needed, then load the rest later
+- `chunk_**` files in network tab is React splitting code into smaller chunks with just what is needed
 ## Low Priority Re-Rendering
 
 ## Typescript
@@ -67,3 +69,4 @@
 ## Testing
 
 ## Wrapping Up
+
