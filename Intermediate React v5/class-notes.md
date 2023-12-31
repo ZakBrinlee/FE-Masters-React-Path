@@ -3,30 +3,18 @@
 # Intermediate React v3
 
 - Started: Thursday December 28th, 2023
-- Completed: December, 2023
+- Completed: Saturday December 30th, 2023
 
 ## Links
 
 - [Course Website](https://react-v8.holt.courses/lessons/intermediate-react-v5/welcome-to-intermediate-react-v5)
-- []() -
-- []() -
-- []() -
-- []() -
-- []() -
-- []() -
 
 ## Top Level Notes
 - Think about a metric to measure your app by to check performance. What is an acceptable time to load for your audience, app type, etc
 - Do not use the `useMemo` hook before having an actual performance problem to solve for
-
-## Questions
-
--
-
 ## Introduction
 
 ## Hooks in Depth
-
 - useRef
   -- Ability to interact with the actual DOM
   -- Allows a container that will maintain the same value between renders
@@ -70,6 +58,8 @@
 ## Redux
 
 ## Testing
+- ViTest VSCode extension
+-- https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer
 
 ## Wrapping Up
 
