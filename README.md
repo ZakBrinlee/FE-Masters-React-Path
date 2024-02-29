@@ -1,6 +1,27 @@
 # FE-Masters-React-Path
 Coursework related to Frontend Masters React learning path
 
+## Courses
+
+**[X] [Complete Intro To React, V5](https://frontendmasters.com/courses/complete-react-v5/)**
+
+**[X] [Complete Intro To React, V8](https://frontendmasters.com/courses/complete-react-v8/)**
+
+**[X] [Intermediate React, V2](https://frontendmasters.com/courses/intermediate-react-v2/)**
+
+**[X] [Intermediate React, V5](https://frontendmasters.com/courses/intermediate-react-v5/)**
+
+**[X] [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/)**
+
+**[X] [React Performance](https://frontendmasters.com/courses/react-performance/)**
+
+**[X] [React and TypeScript, v2](https://frontendmasters.com/courses/react-typescript-v2/)**
+
+**[X] [Introduction to Next.js 13+, v3](https://frontendmasters.com/courses/next-js-v3/)**
+
+**[X] [Enterprise UI Development: Testing & Code Quality](https://frontendmasters.com/courses/enterprise-ui-dev/)**
+
+
 ### TODO from course notes: ###
   *Complete Intro to React, v5*
   * [ ] Checkout more in dept ESlint config files
@@ -43,14 +64,6 @@ Coursework related to Frontend Masters React learning path
 
 ### Resources ##
   * [Collection of React Hooks](https://nikgraf.github.io/react-hooks/)
-
-## Courses
-
-**[X] [Complete Intro To React, V5](https://frontendmasters.com/courses/complete-react-v5/)**
-
-**[X] [Intermediate React, V2](https://frontendmasters.com/courses/intermediate-react-v2/)**
-
-**[X] [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/)**
 
 ## Elective Coursework ##
 
